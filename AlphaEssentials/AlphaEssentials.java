@@ -152,9 +152,9 @@ public class AlphaEssentials extends Plugin {
           return true;
         } 
         Player sourcePlayer = server.matchPlayer(args[1]);
-        Player targetPlayer = server.matchPlayer(args[1]);
+        Player targetPlayer = server.matchPlayer(args[2]);
         if (sourcePlayer == null || targetPlayer == null) {
-          player.sendMessage("while teleporting: player(s) isn't/aren't online.");
+          player.sendMessage(Colors.Red+"Error while teleporting: player(s) isn't/aren't online.");
           return true;
         } 
         sourcePlayer.teleportTo((BaseEntity)targetPlayer);
@@ -187,15 +187,10 @@ public class AlphaEssentials extends Plugin {
         return true;
       } 
       if (args[0].equalsIgnoreCase("/rules")) {
-        player.sendMessage("1. No cheating!");
-        player.sendMessage("2. Don't grief a structure that belongs to someone!");
-        player.sendMessage("3. No item stealing or looting from other players!");
-        player.sendMessage("4. Don't swear in the chat! (if it doesn't go so serious it is allowed)");
-        player.sendMessage("5. Avoid drama in the chat!");
-        player.sendMessage("6. Don't join with usernames that belongs to someone!");
-        player.sendMessage("7. Don't overload the server!");
-        player.sendMessage("");
-        player.sendMessage("More info at forum.eymenwinneryt.42web.io");
+        // edit this in your need
+        player.sendMessage("1. Rule 1");
+        player.sendMessage("2. Rule 2");
+        player.sendMessage("3. Rule 3");
         return true;
       } 
       if (args[0].equalsIgnoreCase("/ping")) {
