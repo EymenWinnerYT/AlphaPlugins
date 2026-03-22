@@ -1,6 +1,6 @@
 # AlphaPlugins
 
-These are the plugins i've made for Minecraft Alpha HMod, since they are very rare now. About the plugins:
+These are the plugins i've made for Minecraft Alpha HMod (specifically for Alpha 1.1.x), since they are very rare now. About the plugins:
 
 ## AlphaLogin
 A basic login system that works on a .properties file with PBKDF2 encryption.
