@@ -399,7 +399,6 @@ public class AlphaEssentials extends Plugin {
     }
     
     public boolean onChat(Player player, String message) {
-    	etc.getMCServer().a();
       if (AlphaEssentials.this.afkPlayers.contains(player.getName())) {
         AlphaEssentials.this.afkPlayers.remove(player.getName());
         broadcastMessage(Colors.LightGray + player.getName() + " is no longer AFK.");
