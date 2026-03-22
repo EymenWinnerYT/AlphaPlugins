@@ -26,7 +26,7 @@ public class AlphaEssentials extends Plugin {
   
   private Hashtable<String, Location> playerLastLocs = new Hashtable<>();
 
-  private HashSet<String> admins = new HashSet<>(); //names are case-sensitive
+  private HashSet<String> admins = new HashSet<>(); //names should be lowercase
 
   private Random wildRand = new Random();
 
@@ -69,7 +69,7 @@ public class AlphaEssentials extends Plugin {
         broadcastMessage(Colors.LightGray + player.getName() + " is no longer AFK.");
       } 
       if (args[0].equalsIgnoreCase("/time")) {
-        if (!admins.contains(player.getName())) {
+        if (!admins.contains(player.getName().toLowerCase())) {
           player.sendMessage(Colors.Rose + "Only staff can use this command.");
           return true;
         } 
@@ -122,7 +122,7 @@ public class AlphaEssentials extends Plugin {
         return true;
       } 
       if (args[0].equalsIgnoreCase("/give")) {
-        if (!admins.contains(player.getName())) {
+        if (!admins.contains(player.getName().toLowerCase())) {
           player.sendMessage(Colors.Rose+"Only staff can use this command.");
           return true;
         } 
@@ -143,7 +143,7 @@ public class AlphaEssentials extends Plugin {
         return true;
       } 
       if (args[0].equalsIgnoreCase("/tpp")) {
-        if (!admins.contains(player.getName())) {
+        if (!admins.contains(player.getName().toLowerCase())) {
           player.sendMessage(Colors.Rose + "Only staff can use this command."); 
           return true;
         }
@@ -154,7 +154,7 @@ public class AlphaEssentials extends Plugin {
         Player sourcePlayer = server.matchPlayer(args[1]);
         Player targetPlayer = server.matchPlayer(args[2]);
         if (sourcePlayer == null || targetPlayer == null) {
-          player.sendMessage(Colors.Red+"Error while teleporting: player(s) isn't/aren't online.");
+          player.sendMessage(Colors.Rose+"Error while teleporting: player(s) isn't/aren't online.");
           return true;
         } 
         sourcePlayer.teleportTo((BaseEntity)targetPlayer);
@@ -162,7 +162,7 @@ public class AlphaEssentials extends Plugin {
       } 
       if (args[0].equalsIgnoreCase("/tp")) {
         int x, y, z;
-        if (!admins.contains(player.getName())) {
+        if (!admins.contains(player.getName().toLowerCase())) {
           player.sendMessage(Colors.Rose + "Only staff can use this command.");
           return true;
         }
@@ -187,10 +187,15 @@ public class AlphaEssentials extends Plugin {
         return true;
       } 
       if (args[0].equalsIgnoreCase("/rules")) {
-        // edit this in your need
-        player.sendMessage("1. Rule 1");
-        player.sendMessage("2. Rule 2");
-        player.sendMessage("3. Rule 3");
+        player.sendMessage("1. No cheating!");
+        player.sendMessage("2. Don't grief a structure that belongs to someone!");
+        player.sendMessage("3. No item stealing or looting from other players!");
+        player.sendMessage("4. Don't swear in the chat! (if it doesn't go so serious it is allowed)");
+        player.sendMessage("5. Avoid drama in the chat!");
+        player.sendMessage("6. Don't join with usernames that belongs to someone!");
+        player.sendMessage("7. Don't overload the server!");
+        player.sendMessage("");
+        player.sendMessage("More info at forum.eymenwinneryt.42web.io");
         return true;
       } 
       if (args[0].equalsIgnoreCase("/ping")) {
@@ -344,7 +349,7 @@ public class AlphaEssentials extends Plugin {
         AlphaEssentials.this.afkPlayers.remove(player.getName());
         broadcastMessage(Colors.LightGray + player.getName() + " is no longer AFK.");
       } 
-      if (!admins.contains(player.getName())) {
+      if (!admins.contains(player.getName().toLowerCase())) {
         Location spawnLoc = server.getSpawnLocation();
         boolean isInSpawnX = (Math.abs(block.getX() - spawnLoc.x) <= 64.0D);
         boolean isInSpawnZ = (Math.abs(block.getZ() - spawnLoc.z) <= 48.0D);
@@ -383,7 +388,7 @@ public class AlphaEssentials extends Plugin {
         AlphaEssentials.this.afkPlayers.remove(playerName);
         broadcastMessage(Colors.LightGray + playerName + " is no longer AFK.");
       }
-      if (!admins.contains(playerName)) {
+      if (!admins.contains(playerName.toLowerCase())) {
         if (server.getBlockAt(block.getX(), block.getY(), block.getZ()).getType() != block.getType())
           return false;
         Location spawnLoc = server.getSpawnLocation();
@@ -403,7 +408,7 @@ public class AlphaEssentials extends Plugin {
         AlphaEssentials.this.afkPlayers.remove(player.getName());
         broadcastMessage(Colors.LightGray + player.getName() + " is no longer AFK.");
       } 
-      if (admins.contains(player.getName())) {
+      if (admins.contains(player.getName().toLowerCase())) {
         message = message.replaceAll("&(\\w)", "");
         broadcastMessage(Colors.LightGray + "[" + Colors.Red + "Owner" + Colors.LightGray + "] " + Colors.White + player.getName() + ": " + message);
         AlphaEssentials.this.logger.info("[Owner] " + player.getName() + ": " + message);
