@@ -1,6 +1,6 @@
 /*
   The AlphaEssentials plugin for HMod by EymenWinnerYT
-  Last update: 21.3.2026 (DD.MM.YYYY)
+  Last update: 22.3.2026 (DD.MM.YYYY)
 
   Code is a bit messy because i've accidently deinted the source code and decompiled from the existing jar.
  */
